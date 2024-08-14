@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/todo-list",
+  "version": "0.1.0",
+  "title": "Todo list",
+  "category": "widgets",
+  "icon": "admin-customizer",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Accordion 1",
+          "content": "Lorem ipsum"
+        },
+        {
+          "title": "Accordion 2",
+          "content": "Lorem ipsum"
+        }
+      ],
+      "source": "query",
+      "selector": ".gutenberg-accordion-item",
+      "query": {
+        "title": {
+          "source": "html",
+          "selector": ".accordion-title h4"
+        },
+        "content": {
+          "source": "html",
+          "selector": ".accordion-content p"
+        }
+      }
+    }
+  },
+  "textdomain": "todo-list",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

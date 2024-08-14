@@ -1,0 +1,73 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-todo-list {
+	color: #000;
+	padding: 2px;
+}
+
+.wp-block-create-block-todo-list .accordion-title, .wp-block-create-block-todo-list .accordion-content{
+	padding: 15px 20px;
+}
+.wp-block-create-block-todo-list .accordion-title h4, .wp-block-create-block-todo-list .accordion-content p{
+	margin: 0px;
+}
+
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn{
+	text-align: right;
+}
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn button{
+	background-color: rgb(170, 11, 11);
+    color: white !important;
+}
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .gutenberg-accordion-icon svg{
+	width: 30px;
+	height: 30px;
+}
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-title{
+	display: flex;
+    justify-content: space-between;
+}
+
+/* style.css */
+.accordion-container {
+    .gutenberg-accordion-item {
+        .accordion-accordion-content-main {
+            .accordion-title {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                background-color: #f1f1f1;
+                border: 1px solid #ddd;
+            }
+
+            .accordion-content {
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                max-height: 0;
+                padding: 0 10px;
+                border-top: 1px solid #ddd;
+                background-color: #fff;
+
+                &.open {
+                    max-height: 200px; /* Adjust as needed */
+                }
+
+                &.closed {
+                    max-height: 0;
+                }
+            }
+        }
+    }
+
+    .accordion-remove-btn {
+        margin: 10px;
+    }
+}
+

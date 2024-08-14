@@ -1,0 +1,13 @@
+
+/*
+Template Name: stylesheet
+*/
+
+
+.emp-form-table td, .emp-form-table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  
