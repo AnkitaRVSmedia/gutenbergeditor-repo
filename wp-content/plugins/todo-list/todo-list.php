@@ -59,8 +59,7 @@ function my_plugin_enqueue_scripts() {
     // Enqueue the accordion script for the frontend
     wp_enqueue_script('my-accordion-script', plugins_url('asset/js/script.js', __FILE__), array('jquery'), null, true);
 
-    // Enqueue the accordion style for the frontend
-   //wp_enqueue_style('my-accordion-style', plugins_url('css/accordion.css', __FILE__));
+   
 }
 add_action('wp_enqueue_scripts', 'my_plugin_enqueue_scripts');
 
