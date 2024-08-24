@@ -55,7 +55,6 @@ add_action('enqueue_block_editor_assets', 'my_enqueue_fontawesome_editor');
 
 
 function my_plugin_enqueue_scripts() {
-    
 
     // Enqueue the accordion script for the frontend
     wp_enqueue_script('my-accordion-script', plugins_url('asset/js/script.js', __FILE__), array('jquery'), null, true);
@@ -67,10 +66,10 @@ add_action('wp_enqueue_scripts', 'my_plugin_enqueue_scripts');
 
 function my_plugin_enqueue_admin_scripts($hook) {
     // Adjust the condition to target specific admin pages if needed
-    if ($hook === 'toplevel_page_my-plugin-settings') { // Example admin page hook
+   
         wp_enqueue_script('my-accordion-script', plugins_url('asset/js/script.js', __FILE__), array('jquery'), null, true);
        //  wp_enqueue_style('my-accordion-style', plugins_url('css/accordion.css', __FILE__));
-    }
+
 }
 add_action('admin_enqueue_scripts', 'my_plugin_enqueue_admin_scripts');
 
