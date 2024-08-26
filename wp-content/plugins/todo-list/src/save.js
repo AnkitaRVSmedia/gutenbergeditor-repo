@@ -33,7 +33,15 @@ const Save = ({ attributes: { items } }) => {
                                 onChange={(value) => onChangeItem(index, 'title', value)}
                                 className="title" // Add a class for styling
                             />
-                        </div>
+                            <span className="gutenberg-accordion-icon" aria-hidden="true">
+                                <span className={`icon-closed ${openIndex === index ? 'hidden' : ''}`}>
+                                    <FontAwesomeIcon icon={faChevronDown} />
+                                </span>
+                                <span className={`icon-opened ${openIndex === index ? '' : 'hidden'}`}>
+                                    <FontAwesomeIcon icon={faMinus} />
+                                </span>
+                            </span>									
+                        </div>                        
                         <div className="accordion-content">
                             <RichText.Content
                                 tagName="p" // Set to p for the content
