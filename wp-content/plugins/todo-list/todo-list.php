@@ -31,48 +31,20 @@ add_action( 'init', 'create_block_todo_list_block_init' );
 
 
 // Enqueue FontAwesome for the front end
-function my_enqueue_fontawesome() {
+    add_action('wp_enqueue_scripts', 'my_enqueue_fontawesome');
+    function my_enqueue_fontawesome() {
+    // Enqueue FontAwesome
     wp_enqueue_style(
         'fontawesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
         array(), // Dependencies, if any
         null   // Version number, optional
     );
-    wp_enqueue_style('accordion-script',  get_template_directory('/assets/js/script.js'), array(), 1.1);
-}
-add_action('wp_enqueue_scripts', 'my_enqueue_fontawesome');
 
-// Enqueue FontAwesome for the block editor
-function my_enqueue_fontawesome_editor() {
-    wp_enqueue_style(
-        'fontawesome-editor',   
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
-        array(), // Dependencies, if any
-        null   // Version number, optional
-    );
-}
-add_action('enqueue_block_editor_assets', 'my_enqueue_fontawesome_editor');
+        wp_enqueue_script( 'myplugin-testjs', plugin_dir_url( __FILE__ ) . "assets/js/script.js", array('jquery'), null, true );
+    }   
 
 
-function my_plugin_enqueue_scripts() {
-    
-
-    // Enqueue the accordion script for the frontend
-    wp_enqueue_script('my-accordion-script', plugins_url('asset/js/script.js', __FILE__), array('jquery'), null, true);
-
-    // Enqueue the accordion style for the frontend
-   //wp_enqueue_style('my-accordion-style', plugins_url('css/accordion.css', __FILE__));
-}
-add_action('wp_enqueue_scripts', 'my_plugin_enqueue_scripts');
-
-function my_plugin_enqueue_admin_scripts($hook) {
-    // Adjust the condition to target specific admin pages if needed
-    if ($hook === 'toplevel_page_my-plugin-settings') { // Example admin page hook
-        wp_enqueue_script('my-accordion-script', plugins_url('asset/js/script.js', __FILE__), array('jquery'), null, true);
-       //  wp_enqueue_style('my-accordion-style', plugins_url('css/accordion.css', __FILE__));
-    }
-}
-add_action('admin_enqueue_scripts', 'my_plugin_enqueue_admin_scripts');
 
 
 

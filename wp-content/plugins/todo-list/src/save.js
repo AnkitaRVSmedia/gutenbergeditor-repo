@@ -5,6 +5,8 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -21,24 +23,24 @@ const Save = ({ attributes: { items } }) => {
     const blockProps = useBlockProps.save();
 
     return (
-        <div className="gutenberg-accordion-widget" { ...blockProps }>
+        <div className="gutenberg-accordion-widget" { ...blockProps.save }  id={accordionId}>
             {/* Parent div wrapping all accordion items */}
-            <div className="accordion-container">
+            <div className="accordion-container layout">
                 {items.map((item, index) => (
                     <div className="gutenberg-accordion-item" key={index}>
-                        <div className="accordion-title"  onClick={() => toggleAccordion(index)}>
+                        <div className="accordion-title">
                             <RichText.Content
                                 tagName="h4" // Set to h4 for the title
                                 value={item.title}
                                 onChange={(value) => onChangeItem(index, 'title', value)}
                                 className="title" // Add a class for styling
                             />
-                            <span className="gutenberg-accordion-icon" aria-hidden="true">
-                                <span className={`icon-closed ${openIndex === index ? 'hidden' : ''}`}>
-                                    <FontAwesomeIcon icon={faChevronDown} />
+                            <span className="gutenberg-accordion-icon " aria-hidden="true">
+                                <span className="icon-closed ">
+                                    <FontAwesomeIcon icon={faChevronDown}/>
                                 </span>
-                                <span className={`icon-opened ${openIndex === index ? '' : 'hidden'}`}>
-                                    <FontAwesomeIcon icon={faMinus} />
+                                <span className="icon-opened hidden">
+                                    <FontAwesomeIcon icon={faMinus}/>
                                 </span>
                             </span>									
                         </div>                        
@@ -57,5 +59,8 @@ const Save = ({ attributes: { items } }) => {
 };
 
 export default Save;
+
+
+console.log('Accordion ID save:', accordionId);
 
 

@@ -3,9 +3,9 @@
 	"apiVersion": 3,
 	"name": "create-block/todo-list",
 	"version": "0.1.0",
-	"title": "Todo list",
+	"title": "Custom Accordion Element",
 	"category": "widgets",
-	"icon": "admin-customizer",
+	"icon": "align-center",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"attributes":{
@@ -34,7 +34,12 @@
 					"selector": ".accordion-content p" 
 				}
             }
-		}	
+		},
+
+		"accordionId": {
+            "type": "string",
+            "default": ""
+        }
 
 	}, 
 	"textdomain": "todo-list",

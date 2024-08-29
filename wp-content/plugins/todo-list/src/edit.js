@@ -40,7 +40,7 @@ import './editor.scss';
 
 const Edit = (props) => {
     const { attributes, setAttributes } = props;
-    const { items } = attributes;
+    const { items, accordionId } = attributes;
 	const [openIndex, setOpenIndex] = useState(null);
 	
 
@@ -80,12 +80,24 @@ const Edit = (props) => {
 		setOpenIndex(openIndex === index ? null : index);
 	};
 
+	const handleAccordionIdChange = (newValue) => {
+		setAttributes({ accordionId: newValue });
+	};
+
     return (
         <div class="gutenberg-accordion-widget" { ...useBlockProps() }>
 			<InspectorControls>
                 <PanelBody title="Accordion Settings">
-                    <Button onClick={addItem}>Add Item</Button>
+                    <Button className="accordion-add-item-btn" onClick={addItem}>Add Item</Button>
                 </PanelBody>
+				<PanelBody title="Accordion Settings">
+					<TextControl
+						label="Accordion ID"
+						value={accordionId}
+						onChange={(newValue) => setAttributes({ accordionId: newValue })}
+						placeholder="Enter ID here"
+					/>
+            	</PanelBody>
             </InspectorControls>
             <div className="gutenberg-accordion-widget">
 				<div className="accordion-container">
@@ -97,7 +109,7 @@ const Edit = (props) => {
 										tagName="h4"
 										value={item.title}
 										onChange={(value) => onChangeItem(index, 'title', value)}
-										placeholder="Add title"
+										placeholder="Add Accordion Title"
 										className="editor-accordion-title"
 									/>
 										<span className="gutenberg-accordion-icon" aria-hidden="true">
@@ -115,7 +127,7 @@ const Edit = (props) => {
 										tagName="p"
 										value={item.content}
 										onChange={(value) => onChangeItem(index, 'content', value)}
-										placeholder="Add content"
+										placeholder="Add Content"
 										className="editor-accordion-content"
 									/>
 								</div>
@@ -131,12 +143,13 @@ const Edit = (props) => {
 							</div>	
 						</div>
 					))}
-				</div>
+				</div>	
             </div>
         </div>
     );	
 };
 export default Edit;
+console.log('Accordion ID edit:', accordionId);
 
 // }
 

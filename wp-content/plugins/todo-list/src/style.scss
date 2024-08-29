@@ -10,7 +10,7 @@
 	padding: 2px;
 }
 
-.wp-block-create-block-todo-list .accordion-title, .wp-block-create-block-todo-list .accordion-content{
+.accordion-container  .gutenberg-accordion-item  .accordion-title, .accordion-container .gutenberg-accordion-item  .accordion-content{
 	padding: 15px 20px;
 }
 .wp-block-create-block-todo-list .accordion-title h4, .wp-block-create-block-todo-list .accordion-content p{
@@ -20,11 +20,18 @@
 .wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn{
 	text-align: right;
 }
-.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn button{
-	background-color: rgb(170, 11, 11);
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn button,
+.components-button.accordion-add-item-btn{
     color: white !important;
 }
-.wp-block-create-block-todo-list .gutenberg-accordion-widget .gutenberg-accordion-icon svg{
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .accordion-remove-btn button{
+    background-color: rgb(170, 11, 11);
+}
+.components-button.accordion-add-item-btn{
+    background-color: #000;
+}
+.wp-block-create-block-todo-list .gutenberg-accordion-widget .gutenberg-accordion-icon svg,
+.wp-block-create-block-todo-list .gutenberg-accordion-item  .gutenberg-accordion-icon svg{
 	width: 30px;
 	height: 30px;
 }
@@ -36,7 +43,7 @@
 /* style.css */
 .accordion-container {
     .gutenberg-accordion-item {
-        .accordion-accordion-content-main {
+        // .accordion-accordion-content-main {
             .accordion-title {
                 cursor: pointer;
                 display: flex;
@@ -63,7 +70,10 @@
                     max-height: 0;
                 }
             }
-        }
+            .accordion-content.open{
+                padding: 20px 10px;
+            }
+        //}
     }
 
     .accordion-remove-btn {
@@ -71,3 +81,6 @@
     }
 }
 
+.accordion-container.layout .gutenberg-accordion-icon .hidden{
+    display: none;
+}
