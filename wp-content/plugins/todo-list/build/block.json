@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Custom Accordion Element",
   "category": "widgets",
-  "icon": "align-center",
+  "icon": "admin-customizer",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "attributes": {
@@ -33,10 +33,6 @@
           "selector": ".accordion-content p"
         }
       }
-    },
-    "accordionId": {
-      "type": "string",
-      "default": ""
     }
   },
   "textdomain": "todo-list",

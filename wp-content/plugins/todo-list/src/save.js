@@ -23,7 +23,7 @@ const Save = ({ attributes: { items } }) => {
     const blockProps = useBlockProps.save();
 
     return (
-        <div className="gutenberg-accordion-widget" { ...blockProps.save }  id={accordionId}>
+        <div className="gutenberg-accordion-widget" { ...blockProps } >
             {/* Parent div wrapping all accordion items */}
             <div className="accordion-container layout">
                 {items.map((item, index) => (
@@ -59,8 +59,5 @@ const Save = ({ attributes: { items } }) => {
 };
 
 export default Save;
-
-
-console.log('Accordion ID save:', accordionId);
 
 

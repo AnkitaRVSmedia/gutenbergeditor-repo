@@ -40,7 +40,7 @@ import './editor.scss';
 
 const Edit = (props) => {
     const { attributes, setAttributes } = props;
-    const { items, accordionId } = attributes;
+    const { items } = attributes;
 	const [openIndex, setOpenIndex] = useState(null);
 	
 
@@ -80,24 +80,13 @@ const Edit = (props) => {
 		setOpenIndex(openIndex === index ? null : index);
 	};
 
-	const handleAccordionIdChange = (newValue) => {
-		setAttributes({ accordionId: newValue });
-	};
-
     return (
         <div class="gutenberg-accordion-widget" { ...useBlockProps() }>
 			<InspectorControls>
                 <PanelBody title="Accordion Settings">
                     <Button className="accordion-add-item-btn" onClick={addItem}>Add Item</Button>
                 </PanelBody>
-				<PanelBody title="Accordion Settings">
-					<TextControl
-						label="Accordion ID"
-						value={accordionId}
-						onChange={(newValue) => setAttributes({ accordionId: newValue })}
-						placeholder="Enter ID here"
-					/>
-            	</PanelBody>
+				
             </InspectorControls>
             <div className="gutenberg-accordion-widget">
 				<div className="accordion-container">
@@ -149,7 +138,6 @@ const Edit = (props) => {
     );	
 };
 export default Edit;
-console.log('Accordion ID edit:', accordionId);
 
 // }
 
