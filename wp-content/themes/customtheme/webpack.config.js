@@ -1,21 +1,23 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin'); // For minifying JS
 
 const config = {
   entry: {
     main:[
-
-    "./src/js/bootstrap.bundle.min.js",
+   
     "./src/js/custom.js",
     "./src/js/jquery.min.js",
-    "./src/js/owl-crowsel-smoth.js",
-    "./src/js/owl.carousel.js"
-  ]
+    "./src/css/bootstrap.min.css",
+    "./src/css/custom.css"
+  ],
   },
   output: {
-    path: path.resolve(__dirname, 'assets'),
-    filename: "custom-script.js",
+    path: path.resolve(__dirname, "assets"),
+    filename: "main.min.js",
+    clean : true,
   },
   module: {
     rules: [
@@ -34,7 +36,7 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          
+          'sass-loader' 
         ]
       },
       
@@ -49,8 +51,18 @@ const config = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin()
-  ]
+    new MiniCssExtractPlugin({
+      filename: 'style.css', // Output CSS file name
+    })
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(), // Minify JS
+      new CssMinimizerPlugin(), // Minify CSS
+    ],
+  },
+  mode: 'production' 
 };
 
-module.exports =  config
+module.exports =  config;
